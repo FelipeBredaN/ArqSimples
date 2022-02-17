@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "935542e7-68fb-4c42-9833-0d53c69cc9ca": {
+      "ProjectGuid": "935542e7-68fb-4c42-9833-0d53c69cc9ca",
+      "DisplayName": "TesteArq.Application",
+      "ColorIndex": 0
+    },
+    "6b2410ae-fc36-4a4c-bdcf-a740c9a6628e": {
+      "ProjectGuid": "6b2410ae-fc36-4a4c-bdcf-a740c9a6628e",
+      "DisplayName": "TesteArq.Domain",
+      "ColorIndex": 1
+    },
+    "55b618de-c2ff-4e3c-82f1-4ad01c2bcc51": {
+      "ProjectGuid": "55b618de-c2ff-4e3c-82f1-4ad01c2bcc51",
+      "DisplayName": "TesteArq.Data",
+      "ColorIndex": 2
+    },
+    "78e670c0-c640-4d87-9d41-3dc89d8b5352": {
+      "ProjectGuid": "78e670c0-c640-4d87-9d41-3dc89d8b5352",
+      "DisplayName": "TesteArq.API",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}
