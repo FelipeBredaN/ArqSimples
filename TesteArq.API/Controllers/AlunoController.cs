@@ -23,7 +23,7 @@ namespace TesteArq.API.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro Inesperado");
             }
         }
 
@@ -37,7 +37,7 @@ namespace TesteArq.API.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro Inesperado");
             }
         }
 
@@ -51,7 +51,7 @@ namespace TesteArq.API.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro Inesperado");
             }
         }
 
@@ -66,7 +66,7 @@ namespace TesteArq.API.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro Inesperado");
             }
         }
 
@@ -81,7 +81,7 @@ namespace TesteArq.API.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro Inesperado");
             }
         }
     }
