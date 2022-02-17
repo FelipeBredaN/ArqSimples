@@ -1,0 +1,17 @@
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\bin\Debug\net6.0\TesteArq.Application.deps.json
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\bin\Debug\net6.0\TesteArq.Application.dll
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\bin\Debug\net6.0\ref\TesteArq.Application.dll
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\bin\Debug\net6.0\TesteArq.Application.pdb
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\bin\Debug\net6.0\TesteArq.Data.dll
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\bin\Debug\net6.0\TesteArq.Domain.dll
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\bin\Debug\net6.0\TesteArq.Data.pdb
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\bin\Debug\net6.0\TesteArq.Domain.pdb
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\obj\Debug\net6.0\TesteArq.Application.csproj.AssemblyReference.cache
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\obj\Debug\net6.0\TesteArq.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\obj\Debug\net6.0\TesteArq.Application.AssemblyInfoInputs.cache
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\obj\Debug\net6.0\TesteArq.Application.AssemblyInfo.cs
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\obj\Debug\net6.0\TesteArq.Application.csproj.CoreCompileInputs.cache
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\obj\Debug\net6.0\TesteArq.Application.csproj.CopyComplete
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\obj\Debug\net6.0\TesteArq.Application.dll
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\obj\Debug\net6.0\ref\TesteArq.Application.dll
+C:\Users\CODE-DEV-19\Documents\TesteArq\ArqLab\TesteArq.Application\obj\Debug\net6.0\TesteArq.Application.pdb
