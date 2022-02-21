@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using TesteArq.Application.Interface;
 using TesteArq.Domain.Entity;
 
@@ -6,20 +6,20 @@ namespace TesteArq.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AlunoController : ControllerBase
+    public class CursoController : ControllerBase
     {
-        public readonly IAlunoService _alunoService;
-        public AlunoController(IAlunoService alunoService)
+        public readonly ICursoService _cursoService;
+        public CursoController(ICursoService cursoService)
         {
-            _alunoService = alunoService;
+            _cursoService = cursoService;
         }
-        // GET: api/<AlunoController>
+         // GET: api/<CursoController>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Aluno>>> Get()
+        public async Task<ActionResult<IEnumerable<Curso>>> Get()
         {
             try
             {
-                return Ok(await _alunoService.GetAll());
+                return Ok(await _cursoService.GetAll());
             }
             catch (Exception ex)
             {
@@ -27,13 +27,13 @@ namespace TesteArq.API.Controllers
             }
         }
 
-        // GET api/<AlunoController>/5
+        // GET api/<CursoController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Aluno>> Get(int id)
+        public async Task<ActionResult<Curso>> Get(int id)
         {
             try
             {
-                return Ok(await _alunoService.GetById(id));
+                return Ok(await _cursoService.GetById(id));
             }
             catch (Exception ex)
             {
@@ -41,13 +41,13 @@ namespace TesteArq.API.Controllers
             }
         }
 
-        // POST api/<AlunoController>
+        // POST api/<CursoController>
         [HttpPost]
-        public async Task<ActionResult<Aluno>> Post([FromBody] Aluno aluno)
+        public async Task<ActionResult<Curso>> Post([FromBody] Curso curso)
         {
             try
             {
-                return Ok(await _alunoService.Add(aluno));
+                return Ok(await _cursoService.Add(curso));
             }
             catch (Exception ex)
             {
@@ -55,13 +55,13 @@ namespace TesteArq.API.Controllers
             }
         }
 
-        // PUT api/<AlunoController>/5
+        // PUT api/<CursoController>/5
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] Aluno aluno)
+        public async Task<ActionResult> Put([FromBody] Curso curso)
         {
             try
             {
-                await _alunoService.Update(aluno);
+                await _cursoService.Update(curso);
                 return Ok();
             }
             catch (Exception ex)
@@ -70,13 +70,13 @@ namespace TesteArq.API.Controllers
             }
         }
 
-        // DELETE api/<AlunoController>/5
+        // DELETE api/<CursoController>/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             try
             {
-                await _alunoService.Delete(id);
+                await _cursoService.Delete(id);
                 return Ok();
             }
             catch (Exception ex)
@@ -84,5 +84,6 @@ namespace TesteArq.API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+        
     }
 }

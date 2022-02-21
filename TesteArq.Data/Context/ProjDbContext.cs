@@ -8,9 +8,12 @@ namespace TesteArq.Data.Context
         public ProjDbContext(DbContextOptions<ProjDbContext> options) : base(options) { }
 
         public DbSet<Aluno> Aluno { get; set; }
+        public DbSet<Curso> Curso { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Aluno>().ToTable("Aluno");
+            modelBuilder.Entity<Curso>().ToTable("Curso");
+
         }
     }
 }

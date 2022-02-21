@@ -17,6 +17,9 @@ builder.Services.AddDbContext<ProjDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IAlunoService, AlunoService>();
 builder.Services.AddScoped<IAlunoRepository, AlunoRepository>();
+builder.Services.AddScoped<ICursoService, CursoSerivce>();
+builder.Services.AddScoped<ICursoRepository, CursoRepository>();
+
 
 var app = builder.Build();
 

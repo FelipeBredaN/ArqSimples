@@ -7,23 +7,28 @@ namespace TesteArq.Application.Service
     public class AlunoService : IAlunoService
     {
         private readonly IAlunoRepository _alunoRepository;
-        public AlunoService(IAlunoRepository alunoRepository)
+        private readonly ICursoRepository _cursoRepository;
+        public AlunoService(IAlunoRepository alunoRepository, ICursoRepository cursoRepository)
         {
             _alunoRepository = alunoRepository;
+            _cursoRepository = cursoRepository;
         }
-        public async Task<Aluno> AddAluno(Aluno aluno)
+        public async Task<Aluno> Add(Aluno aluno)
         {
-            return await _alunoRepository.AddAluno(aluno);
+            var curso = await _cursoRepository.GetById(aluno.CursoId);
+            if(curso == null)
+                throw new Exception("Curso não existe");
+            return await _alunoRepository.Add(aluno);
         }
 
-        public async Task DeleteAluno(int Id)
+        public async Task Delete(int Id)
         {
-            await _alunoRepository.DeleteAluno(Id);
+            await _alunoRepository.Delete(Id);
         }
 
-        public Task<IEnumerable<Aluno>> GetAll()
+        public async Task<IEnumerable<Aluno>> GetAll()
         {
-            return _alunoRepository.GetAll();
+            return await _alunoRepository.GetAll();
         }
 
         public async Task<Aluno> GetById(int Id)
@@ -31,9 +36,12 @@ namespace TesteArq.Application.Service
             return await _alunoRepository.GetById(Id);
         }
 
-        public async Task UpdateAluno(Aluno aluno)
+        public async Task Update(Aluno aluno)
         {
-            await _alunoRepository.UpdateAluno(aluno);
+            var curso = await _cursoRepository.GetById(aluno.CursoId);
+            if(curso == null)
+                throw new Exception("Curso não existe");
+            await _alunoRepository.Update(aluno);
         }
     }
 }

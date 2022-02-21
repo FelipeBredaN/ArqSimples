@@ -12,14 +12,14 @@ namespace TesteArq.Data.Repository
         {
             _context = Context;
         }
-        public async Task<Aluno> AddAluno(Aluno aluno)
+        public async Task<Aluno> Add(Aluno aluno)
         {
             await _context.AddAsync(aluno);
             _context.SaveChanges();
             return aluno;
         }
 
-        public async Task DeleteAluno(int Id)
+        public async Task Delete(int Id)
         {
             var aluno = await _context.Aluno.Where(x => x.Id == Id).FirstOrDefaultAsync();
             _context.Remove(aluno);
@@ -34,11 +34,11 @@ namespace TesteArq.Data.Repository
 
         public async Task<Aluno> GetById(int Id)
         {
-            var aluno = await _context.Aluno.Where(x => x.Id == Id).FirstOrDefaultAsync();
+            var aluno = await _context.Aluno.Where(x => x.Id == Id).Include(x => x.Curso).FirstOrDefaultAsync();
             return aluno;
         }
 
-        public async Task UpdateAluno(Aluno aluno)
+        public async Task Update(Aluno aluno)
         {
             _context.Aluno.Update(aluno);
             await _context.SaveChangesAsync();
