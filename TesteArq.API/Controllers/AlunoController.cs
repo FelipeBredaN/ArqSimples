@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TesteArq.Application.DTOs;
 using TesteArq.Application.Interface;
 using TesteArq.Domain.Entity;
 
@@ -15,7 +16,7 @@ namespace TesteArq.API.Controllers
         }
         // GET: api/<AlunoController>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Aluno>>> Get()
+        public async Task<ActionResult<IEnumerable<AlunoDTO>>> Get()
         {
             try
             {
@@ -29,7 +30,7 @@ namespace TesteArq.API.Controllers
 
         // GET api/<AlunoController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Aluno>> Get(int id)
+        public async Task<ActionResult<AlunoDTO>> Get(int id)
         {
             try
             {
@@ -43,7 +44,7 @@ namespace TesteArq.API.Controllers
 
         // POST api/<AlunoController>
         [HttpPost]
-        public async Task<ActionResult<Aluno>> Post([FromBody] Aluno aluno)
+        public async Task<ActionResult<AlunoDTO>> Post([FromBody] AlunoDTO aluno)
         {
             try
             {
@@ -57,7 +58,7 @@ namespace TesteArq.API.Controllers
 
         // PUT api/<AlunoController>/5
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] Aluno aluno)
+        public async Task<ActionResult> Put([FromBody] AlunoDTO aluno)
         {
             try
             {

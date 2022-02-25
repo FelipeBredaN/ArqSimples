@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TesteArq.Application.Interface;
+using TesteArq.Application.Mappings;
 using TesteArq.Application.Service;
 using TesteArq.Data.Context;
 using TesteArq.Data.Interface;
@@ -19,6 +20,7 @@ builder.Services.AddScoped<IAlunoService, AlunoService>();
 builder.Services.AddScoped<IAlunoRepository, AlunoRepository>();
 builder.Services.AddScoped<ICursoService, CursoSerivce>();
 builder.Services.AddScoped<ICursoRepository, CursoRepository>();
+builder.Services.AddAutoMapper(typeof(DtoMappingProfile));
 
 
 var app = builder.Build();

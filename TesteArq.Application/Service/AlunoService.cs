@@ -1,4 +1,6 @@
-﻿using TesteArq.Application.Interface;
+﻿using AutoMapper;
+using TesteArq.Application.DTOs;
+using TesteArq.Application.Interface;
 using TesteArq.Data.Interface;
 using TesteArq.Domain.Entity;
 
@@ -8,17 +10,22 @@ namespace TesteArq.Application.Service
     {
         private readonly IAlunoRepository _alunoRepository;
         private readonly ICursoRepository _cursoRepository;
-        public AlunoService(IAlunoRepository alunoRepository, ICursoRepository cursoRepository)
+        private readonly IMapper _mapper;
+
+        public AlunoService(IAlunoRepository alunoRepository, ICursoRepository cursoRepository, IMapper mapper)
         {
             _alunoRepository = alunoRepository;
             _cursoRepository = cursoRepository;
+            _mapper = mapper;
         }
-        public async Task<Aluno> Add(Aluno aluno)
+        public async Task<AlunoDTO> Add(AlunoDTO alunoDto)
         {
-            var curso = await _cursoRepository.GetById(aluno.CursoId);
+            var curso = await _cursoRepository.GetById(alunoDto.CursoId);
             if(curso == null)
                 throw new Exception("Curso não existe");
-            return await _alunoRepository.Add(aluno);
+            var alunoEntity = _mapper.Map<Aluno>(alunoDto);
+            await _alunoRepository.Add(alunoEntity);
+            return alunoDto;
         }
 
         public async Task Delete(int Id)
@@ -26,22 +33,25 @@ namespace TesteArq.Application.Service
             await _alunoRepository.Delete(Id);
         }
 
-        public async Task<IEnumerable<Aluno>> GetAll()
+        public async Task<IEnumerable<AlunoDTO>> GetAll()
         {
-            return await _alunoRepository.GetAll();
+            var alunoEntity = await _alunoRepository.GetAll();
+            return _mapper.Map<IEnumerable<AlunoDTO>>(alunoEntity);
         }
 
-        public async Task<Aluno> GetById(int Id)
+        public async Task<AlunoDTO> GetById(int Id)
         {
-            return await _alunoRepository.GetById(Id);
+            var alunoEntity = await _alunoRepository.GetById(Id);
+            return _mapper.Map<AlunoDTO>(alunoEntity);
         }
 
-        public async Task Update(Aluno aluno)
+        public async Task Update(AlunoDTO alunoDto)
         {
-            var curso = await _cursoRepository.GetById(aluno.CursoId);
+            var curso = await _cursoRepository.GetById(alunoDto.CursoId);
             if(curso == null)
                 throw new Exception("Curso não existe");
-            await _alunoRepository.Update(aluno);
+            var alunoEntity = _mapper.Map<Aluno>(alunoDto);
+            await _alunoRepository.Update(alunoEntity);
         }
     }
 }

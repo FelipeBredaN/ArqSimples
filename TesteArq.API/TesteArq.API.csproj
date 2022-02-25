@@ -14,6 +14,7 @@
     <ProjectReference Include="..\TesteArq.Application\TesteArq.Application.csproj" />
     <ProjectReference Include="..\TesteArq.Data\TesteArq.Data.csproj" />
     <ProjectReference Include="..\TesteArq.Domain\TesteArq.Domain.csproj" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
 
 </Project>

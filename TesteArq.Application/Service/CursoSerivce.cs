@@ -1,3 +1,5 @@
+using AutoMapper;
+using TesteArq.Application.DTOs;
 using TesteArq.Application.Interface;
 using TesteArq.Data.Interface;
 using TesteArq.Domain.Entity;
@@ -7,13 +9,18 @@ namespace TesteArq.Application.Service
     public class CursoSerivce : ICursoService
     {
         private readonly ICursoRepository _cursoRepository;
-        public CursoSerivce(ICursoRepository cursoRepository)
+        private readonly IMapper _mapper;
+
+        public CursoSerivce(ICursoRepository cursoRepository, IMapper mapper)
         {
             _cursoRepository = cursoRepository;
+            _mapper = mapper;
         }
-        public async Task<Curso> Add(Curso curso)
+        public async Task<CursoDTO> Add(CursoDTO cursoDto)
         {
-            return await _cursoRepository.Add(curso);
+            var cursoEntity = _mapper.Map<Curso>(cursoDto);
+            await _cursoRepository.Add(cursoEntity);
+            return cursoDto;
         }
 
         public async Task Delete(int Id)
@@ -21,21 +28,23 @@ namespace TesteArq.Application.Service
             await _cursoRepository.Delete(Id);
         }
 
-        public async Task<IEnumerable<Curso>> GetAll()
+        public async Task<IEnumerable<CursoDTO>> GetAll()
         {
-            return await _cursoRepository.GetAll();
+            var cursoEntity = await _cursoRepository.GetAll();
+            return _mapper.Map<IEnumerable<CursoDTO>>(cursoEntity);
 
         }
 
-        public async Task<Curso> GetById(int Id)
+        public async Task<CursoDTO> GetById(int Id)
         {
-            return await _cursoRepository.GetById(Id);
-
+            var cursoEntity = await _cursoRepository.GetById(Id);
+            return _mapper.Map<CursoDTO>(cursoEntity);
         }
 
-        public async Task Update(Curso curso)
+        public async Task Update(CursoDTO curso)
         {
-            await _cursoRepository.Update(curso);
+            var cursoEntity = _mapper.Map<Curso>(curso);
+            await _cursoRepository.Update(cursoEntity);
 
         }
     }

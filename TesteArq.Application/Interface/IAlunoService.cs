@@ -1,13 +1,13 @@
-﻿using TesteArq.Domain.Entity;
+﻿using TesteArq.Application.DTOs;
 
 namespace TesteArq.Application.Interface
 {
     public interface IAlunoService
     {
-        public Task<IEnumerable<Aluno>> GetAll();
-        public Task<Aluno> GetById(int Id);
-        public Task<Aluno> Add(Aluno aluno);
-        public Task Update(Aluno aluno);
+        public Task<IEnumerable<AlunoDTO>> GetAll();
+        public Task<AlunoDTO> GetById(int Id);
+        public Task<AlunoDTO> Add(AlunoDTO alunoDto);
+        public Task Update(AlunoDTO alunoDto);
         public Task Delete(int Id);
     }
 }
