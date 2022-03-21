@@ -18,72 +18,37 @@ namespace TesteArq.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CursoDTO>>> Get()
         {
-            try
-            {
-                return Ok(await _cursoService.GetAll());
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            return Ok(await _cursoService.GetAll());
         }
 
         // GET api/<CursoController>/5
         [HttpGet("{id}")]
         public async Task<ActionResult<CursoDTO>> Get(int id)
         {
-            try
-            {
-                return Ok(await _cursoService.GetById(id));
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            return Ok(await _cursoService.GetById(id));
         }
 
         // POST api/<CursoController>
         [HttpPost]
         public async Task<ActionResult<CursoDTO>> Post([FromBody] CursoDTO curso)
         {
-            try
-            {
-                return Ok(await _cursoService.Add(curso));
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            return Ok(await _cursoService.Add(curso));
         }
 
         // PUT api/<CursoController>/5
         [HttpPut]
         public async Task<ActionResult> Put([FromBody] CursoDTO curso)
         {
-            try
-            {
-                await _cursoService.Update(curso);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            await _cursoService.Update(curso);
+            return Ok();
         }
 
         // DELETE api/<CursoController>/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            try
-            {
-                await _cursoService.Delete(id);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            await _cursoService.Delete(id);
+            return Ok();
         }
         
     }

@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using TesteArq.Data.Context;
 using TesteArq.Data.Interface;
@@ -42,6 +43,11 @@ namespace TesteArq.Data.Repository
         {
             _context.Curso.Update(curso);
             await _context.SaveChangesAsync();
+        }
+        
+        public async Task<IEnumerable<Curso>> FindBy(Expression<Func<Curso, bool>> predicate)
+        {
+            return await _context.Set<Curso>().Where(predicate).ToListAsync();
         }
     }
 }

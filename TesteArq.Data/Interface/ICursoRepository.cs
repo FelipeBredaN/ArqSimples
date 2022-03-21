@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using TesteArq.Domain.Entity;
 
 namespace TesteArq.Data.Interface
@@ -9,5 +10,7 @@ namespace TesteArq.Data.Interface
         public Task<Curso> Add(Curso curso);
         public Task Update(Curso curso);
         public Task Delete(int Id);
+        public Task<IEnumerable<Curso>> FindBy(Expression<Func<Curso, bool>> predicate);
+
     }
 }

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TesteArq.API.Middlewares;
 using TesteArq.Application.Interface;
 using TesteArq.Application.Mappings;
 using TesteArq.Application.Service;
@@ -24,7 +25,7 @@ builder.Services.AddAutoMapper(typeof(DtoMappingProfile));
 
 
 var app = builder.Build();
-
+app.UseMiddleware<ExceptionMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
